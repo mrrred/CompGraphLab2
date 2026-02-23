@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 
 #include <windows.h>
 #include <GL/gl.h>
@@ -202,6 +202,81 @@ void display_3_2_3_3()
 	glEnd();
 }
 
+void DisplayFirstQuater(){
+	glViewport(400, 400, 400, 400);
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glBegin(GL_QUAD_STRIP);
+	glColor3ub(255, 0, 0);
+	glVertex2i(-5, 5);
+	glVertex2i(-3, 5);
+	glVertex2i(-5, 3);
+	glVertex2i(-3, 3);
+	glVertex2i(-5, 1);
+	glVertex2i(-3, 1);
+	glVertex2i(-5, -1);
+	glVertex2i(-3, -1);
+	glVertex2i(-5, -3);
+	glVertex2i(-3, -3);
+	glEnd();
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glShadeModel(GL_FLAT);
+	glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(255, 0, 0);
+	glVertex2i(0, 0);
+	glVertex2i(2, 4);
+	glVertex2i(3, 3);
+	glColor3ub(255, 0, 255);
+	glVertex2i(3, 2);
+	glColor3ub(255, 255, 0);
+	glVertex2i(3, 0);
+	glColor3ub(0, 255, 0);
+	glVertex2i(3, -1);
+	glColor3ub(0, 255, 255);
+	glVertex2i(2, -2);
+	glColor3ub(0, 0, 255);
+	glVertex2i(1, -3);
+	glEnd();
+
+}
+
+
+void DisplaySecondQuater() {
+	glViewport(0, 400, 400, 400);
+
+	glLineWidth(2);
+	glBegin(GL_LINES);
+	glColor3ub(255, 255, 0);
+	glVertex2i(-5, 1);
+	glVertex2i(4, 5);
+	glEnd();
+
+	glLineWidth(4);
+	glBegin(GL_LINES);
+	glColor3ub(0, 255, 0);
+	glVertex2i(-2, -2);
+	glVertex2i(5, 3);
+	glEnd();
+
+
+	glLineWidth(2);
+	glEnable(GL_LINE_STIPPLE);
+	glLineStipple(5, 0xC999);
+	glBegin(GL_LINE_LOOP);
+	glColor3ub(255, 0, 0);
+	glVertex2i(-4, 4);
+	glVertex2i(5, -3);
+	glEnd();
+
+	glDisable(GL_LINE_SMOOTH);
+	glDisable(GL_LINE_STIPPLE);
+
+
+}
+
+
+
 void displatString(std::string str,
 	int vp_x, int vp_y, int vp_w, int vp_h,
 	int posx, int posy
@@ -223,6 +298,8 @@ void  display(void)
 
 	glViewport(0, 0, g_winW, g_winH);
 
+	DisplayFirstQuater();
+	DisplaySecondQuater();
 	display_2_0();
 	display_2_1();
 	display_2_2();

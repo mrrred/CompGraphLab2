@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CompGraphLab2/CompGraphLab2.vcxproj" />
+  <Project Path="CompGraphLab2/CompGraphLab2.vcxproj" Id="152925d1-7e1b-498a-b72a-09f35c103c4e" />
 </Solution>

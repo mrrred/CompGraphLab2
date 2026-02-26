@@ -203,7 +203,7 @@ void display_3_2_3_3()
 }
 
 void DisplayFirstQuater(){
-	glViewport(400, 400, 400, 400);
+	glViewport(400 * xResize, 400 * yResize, 400 * xResize, 400 * yResize);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glBegin(GL_QUAD_STRIP);
@@ -243,7 +243,7 @@ void DisplayFirstQuater(){
 
 
 void DisplaySecondQuater() {
-	glViewport(0, 400, 400, 400);
+	glViewport(0, 400 * yResize, 400 * xResize, 400 * yResize);
 
 	glLineWidth(2);
 	glBegin(GL_LINES);

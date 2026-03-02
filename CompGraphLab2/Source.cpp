@@ -205,9 +205,9 @@ void display_3_2_3_3()
 void DisplayFirstQuater(){
 	glViewport(400 * xResize, 400 * yResize, 400 * xResize, 400 * yResize);
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glColor3ub(255, 255, 255);
 	glBegin(GL_QUAD_STRIP);
-	glColor3ub(255, 0, 0);
 	glVertex2i(-5, 5);
 	glVertex2i(-3, 5);
 	glVertex2i(-5, 3);
@@ -216,8 +216,15 @@ void DisplayFirstQuater(){
 	glVertex2i(-3, 1);
 	glVertex2i(-5, -1);
 	glVertex2i(-3, -1);
-	glVertex2i(-5, -3);
+	glEnd();
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glColor3ub(255, 0, 0);
+	glBegin(GL_QUADS);
+	glVertex2i(-5, -1);
+	glVertex2i(-3, -1);
 	glVertex2i(-3, -3);
+	glVertex2i(-5, -3);
 	glEnd();
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
